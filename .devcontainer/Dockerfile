@@ -1,11 +1,11 @@
-# python3.10.14 を含む Debian bookworm イメージ
+# Debian Bookworm ベースのイメージ
 FROM python:3.10.14-bookworm
-# DynamoDB Local が 8000 を使用するので、別の port を使います
+# DynamoDB Local がポート 8000 を使用するため、別のポートを公開
 EXPOSE 8080
 
-# Python の stdout と stderr のバッファリングを無効化させます。
+# Python の標準出力と標準エラー出力のバッファリングを無効化
 ENV PYTHONUNBUFFERED 1
-# タイムゾーン
+# タイムゾーンを JST-9 に設定
 ENV TZ JST-9 
 
 RUN pip3 install --upgrade pip
