@@ -1,0 +1,6 @@
+{
+    "name": "Dev Container",
+    "dockerComposeFile": "./docker-compose.yml",
+    "service": "fastapi_dev",
+    "workspaceFolder": "/workspace"
+}

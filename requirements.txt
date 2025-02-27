@@ -1,0 +1,3 @@
+boto3==1.36.25
+fastapi[standard]==0.115.8
+pydantic-settings==2.8.0

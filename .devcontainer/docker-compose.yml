@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  dynamodb_dev:
+    image: amazon/dynamodb-local:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - dynamodb_data_dev:/data
+    command: -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar /data
+
+  fastapi_dev:
+    build:
+      context: ../
+      dockerfile: ./.devcontainer/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dynamodb_dev
+    volumes:
+      - ../:/workspace
+    command: sleep infinity
+
+volumes:
+  dynamodb_data_dev:
+
